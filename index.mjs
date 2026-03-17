@@ -5,7 +5,7 @@ const app = express();
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 
-//routes
+//route s
 //root rout e
 app.get('/', async (req, res) => {
    let url = "https://pixabay.com/api/?key=5589438-47a0bca778bf23fc2e8c5bf3e&per_page=50&orientation=horizontal&q=solar%20system";
