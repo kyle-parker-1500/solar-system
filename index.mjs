@@ -27,6 +27,7 @@ app.get('/apod', async (req, res) => {
       let url = `https://api.nasa.gov/planetary/apod?api_key=9mUzIkhlZCZaOoMfspg7jMmwZCZ4LiRHtkgkambD&date=${currentDate}`;
       let response = await fetch(url);
       let data = await response.json();
+      console.log("FULL DATA:", JSON.stringify(data));
       res.render('apod.ejs', {data});
    } catch(err) {
       console.log("Error!", err);
