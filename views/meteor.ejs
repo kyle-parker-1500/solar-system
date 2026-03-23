@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Embedding a Partial file -->
+    <%- include("./partials/head.ejs")%>
+</head>
+
+<body>
+    <h1 class="bg-info text-white p-3 m-0"> <%=meteor %> </h1>
+
+    <!-- Embedding Nav --> 
+    <%- include("./partials/nav.ejs") %>
+
+    <div class="container-fluid row">
+
+        <div class="card p-4 col">
+            <h2> <%=meteor %> </h2>
+            
+            <b>Description:</b>
+            <%=meteorInfo.meteors %>
+
+            <b>Meteor Showers:</b>
+            <%=meteorInfo.meteorShowers %>
+
+            <b>Website Link:</b>
+            <a href="<%=meteorInfo.meteorShowerLink %>"> <%=meteor %> Shower Link</a>
+        </div>
+
+        <div class="card p-4 col">
+            <img src="<%=meteorInfo.image %>">
+        </div>
+
+    </div>
+        
+    <%- include("./partials/footer.ejs") %>
+
+</body>
+
+</html>
