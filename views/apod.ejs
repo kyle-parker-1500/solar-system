@@ -10,16 +10,14 @@
     <%- include("./partials/nav.ejs") %> 
 
     <h2 id="iod">Image of the Day:</h2>
-    <% if(data && data.url && data.url.indexOf("mp4") != -1) { %>
+    <% if(data.url.indexOf("mp4") != -1) { %>
         <video controls width="250">
             <source src="<%= data.url %>" type="video/mp4" />
         </video>
-    <% } else if(data && data.url) { %>
-        <img src="<%= data.url %>" alt="<%= data.title %>">
     <% } else { %>
-        <p>Image unavailable.</p>
-    <% } %>        
-
+        <img src="<%= data.url %>" alt="<%= data.title %>">
+    <% } %>
+        
     <%- include("./partials/footer.ejs") %>
 </body>
 

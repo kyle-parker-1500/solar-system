@@ -20,14 +20,9 @@ app.get('/', async (req, res) => {
 
 app.get('/apod', async (req, res) => {
    try {
-      const date = new Date();
-      let pad = (n) => String(n).padStart(2, '0');
-      let currentDate = `${date.getFullYear()}-${pad(date.getMonth()+1)}-${pad(date.getDate())}`
-
-      let url = `https://api.nasa.gov/planetary/apod?api_key=9mUzIkhlZCZaOoMfspg7jMmwZCZ4LiRHtkgkambD&date=${currentDate}`;
+      let url = `https://api.nasa.gov/planetary/apod?api_key=9mUzIkhlZCZaOoMfspg7jMmwZCZ4LiRHtkgkambD`;
       let response = await fetch(url);
       let data = await response.json();
-      console.log("FULL DATA:", JSON.stringify(data));
       res.render('apod.ejs', {data});
    } catch(err) {
       console.log("Error!", err);
