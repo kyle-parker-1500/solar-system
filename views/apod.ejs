@@ -9,8 +9,14 @@
     <h1 class="bg-info text-white p-3 m-0"> The Solar System </h1>
     <%- include("./partials/nav.ejs") %> 
 
-    <h2>Image of the Day:</h2>
-    <img src="<%= data.url %>" alt="<%= data.title %>">
+    <h2 id="iod">Image of the Day:</h2>
+    <% if(data.url.indexOf("mp4") != -1) { %>
+        <video controls width="250">
+            <source src="<%= data.url %>" type="video/mp4" />
+        </video>
+    <% } else { %>
+        <img src="<%= data.url %>" alt="<%= data.title %>">
+    <% } %>
         
     <%- include("./partials/footer.ejs") %>
 </body>

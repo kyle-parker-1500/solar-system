@@ -21,18 +21,10 @@ app.get('/', async (req, res) => {
 app.get('/apod', async (req, res) => {
    const date = new Date();
    let currentDate = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`
-   let prevDate = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()-1}`;
 
    let url = `https://api.nasa.gov/planetary/apod?api_key=9mUzIkhlZCZaOoMfspg7jMmwZCZ4LiRHtkgkambD&date=${currentDate}`;
    let response = await fetch(url);
    let data = await response.json();
-   
-   if (data.url.indexOf(".mp4") != -1) { // is a video, change date url to yesterday
-      url = `https://api.nasa.gov/planetary/apod?api_key=9mUzIkhlZCZaOoMfspg7jMmwZCZ4LiRHtkgkambD&date=${prevDate}`;
-   } 
-   
-   response = await fetch(url);
-   data = await response.json();
    
    res.render('apod.ejs', {data});
 });
